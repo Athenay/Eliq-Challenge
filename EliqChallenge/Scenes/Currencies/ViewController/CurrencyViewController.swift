@@ -56,4 +56,8 @@ extension CurrencyViewController: CollectionViewSelectItemDelegate {
         }
         self.router?.navigateToRate(selectedCurrency: selectedCurrency)
     }
+    
+    @IBAction func exchangeButtonTapped() {
+        self.router?.navigateToExchange()
+    }
 }

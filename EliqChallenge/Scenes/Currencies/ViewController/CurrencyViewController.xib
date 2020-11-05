@@ -46,9 +46,27 @@
                                 </collectionView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNK-cc-aQp">
                                     <rect key="frame" x="0.0" y="465" width="414" height="100"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-Ii-ARY">
+                                            <rect key="frame" x="82" y="22.5" width="250" height="55"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="2Tt-9D-V5C"/>
+                                                <constraint firstAttribute="width" constant="250" id="tdi-II-z15"/>
+                                            </constraints>
+                                            <state key="normal" title="Exchange">
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="exchangeButtonTapped" destination="-1" eventType="touchUpInside" id="zfU-pq-Vwr"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="YaH-Ii-ARY" firstAttribute="centerY" secondItem="pNK-cc-aQp" secondAttribute="centerY" id="bKk-GP-JrY"/>
                                         <constraint firstAttribute="height" constant="100" id="c38-0Q-bZm"/>
+                                        <constraint firstItem="YaH-Ii-ARY" firstAttribute="centerX" secondItem="pNK-cc-aQp" secondAttribute="centerX" id="fjF-px-E99"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -69,7 +87,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="tsE-2Q-DwI" secondAttribute="top" id="xjp-LM-IVz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
+            <point key="canvasLocation" x="-126" y="38"/>
         </view>
     </objects>
 </document>

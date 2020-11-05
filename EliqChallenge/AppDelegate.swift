@@ -14,12 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var networkAPI: NetworkAPI = {
         return NetworkAPI(decoder: JSONDecoder().getInstance())
     }()
+    lazy var latestCurrencyFetcher: LatestCurrencyRateFetcher = {
+        return LatestCurrencyRateFetcher(base: "EUR", fetchInterval: TimeInterval(Date.minutesInHour * Date.secondsInMinute), networkAPI: self.networkAPI)
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow()
         self.window?.rootViewController = UINavigationController(rootViewController: CurrencyDependencyContainer().makeCurrencyViewController())
         self.window?.makeKeyAndVisible()
+        self.latestCurrencyFetcher.fetchLatestRates(completion: nil)
         return true
     }
 

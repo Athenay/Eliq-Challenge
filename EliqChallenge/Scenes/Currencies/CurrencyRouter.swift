@@ -17,6 +17,9 @@ class CurrencyRouter: CurrencyRoutingLogic {
     weak var viewController: CurrencyViewController?
     
     func navigateToExchange() {
+        let dependencyContainer = ExchangeDependencyContainer()
+        let viewController = dependencyContainer.makeExchangeViewControlelr()
+        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func navigateToRate(selectedCurrency: Currency) {
