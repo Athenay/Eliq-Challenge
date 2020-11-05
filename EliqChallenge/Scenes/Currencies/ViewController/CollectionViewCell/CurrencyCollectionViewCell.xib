@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CurrencyCollectionViewCell" customModule="EliqChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="187" height="113"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="187" height="113"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZX-8x-oA4">
+                        <rect key="frame" x="8" y="8" width="171" height="97"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0k-R7-irM">
+                                <rect key="frame" x="8" y="8" width="155" height="81"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="d0k-R7-irM" secondAttribute="bottom" constant="8" id="bWO-MJ-GAg"/>
+                            <constraint firstItem="d0k-R7-irM" firstAttribute="top" secondItem="gZX-8x-oA4" secondAttribute="top" constant="8" id="ntX-pz-mh7"/>
+                            <constraint firstItem="d0k-R7-irM" firstAttribute="leading" secondItem="gZX-8x-oA4" secondAttribute="leading" constant="8" id="ulM-kN-ksp"/>
+                            <constraint firstAttribute="trailing" secondItem="d0k-R7-irM" secondAttribute="trailing" constant="8" id="vcY-B5-Kbb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gZX-8x-oA4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="DKe-Tk-SKP"/>
+                <constraint firstAttribute="trailing" secondItem="gZX-8x-oA4" secondAttribute="trailing" constant="8" id="Pvl-Lc-thB"/>
+                <constraint firstAttribute="bottom" secondItem="gZX-8x-oA4" secondAttribute="bottom" constant="8" id="QNg-Sv-KzK"/>
+                <constraint firstItem="gZX-8x-oA4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="n0x-r9-tBn"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="187" height="113"/>
+            <connections>
+                <outlet property="currencyName" destination="d0k-R7-irM" id="ph0-hw-dxb"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="103"/>
+        </collectionViewCell>
+    </objects>
+</document>
