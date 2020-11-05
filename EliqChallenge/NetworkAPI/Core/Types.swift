@@ -36,6 +36,7 @@ public enum RequestType {
     case requestRaw(Data)
     case requestPlain
     case requestJSONEncodable(Encodable)
+    case requestParameters(urlParameters: [String: String])
 }
 
 protocol RequestProtocol {
@@ -80,6 +81,22 @@ internal extension URLRequest {
             throw NetworkError.encodableMapping
         }
     }
+    
+    mutating func encoded(parameters: [String: String]) -> URLRequest {
+        guard let url = self.url else { return self }
+        var components = URLComponents(string: url.absoluteString)
+        components?.queryItems = parameters.map { (arg) -> URLQueryItem in
+            let (key, value) = arg
+            return URLQueryItem(name: key, value: String(value))
+        }
+        let percentEncodedQuery = components?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        components?.percentEncodedQuery = percentEncodedQuery
+        self.url = components?.url
+        
+        debugPrint("CONVERTED URL: \(String(describing: self.url))")
+        return self
+    }
+
 }
 
 

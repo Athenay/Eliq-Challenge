@@ -44,6 +44,9 @@ extension Endpoint {
         case .requestRaw(let data):
             request.httpBody = data
             return request
+        case .requestParameters(urlParameters: let urlParameters):
+            request = request.encoded(parameters: urlParameters)
+            return request
         }
     }
 }

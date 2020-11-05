@@ -24,11 +24,11 @@ enum CurrencyModel {
     
 }
 
-enum Currency: String, CaseIterable {
-    case SEK
-    case AUD
-    case USD
-    case CAD
-    case PLN
-    case MXN
+enum Currency: String, CaseIterable, Decodable {
+    case SEK = "SEK"
+    case AUD = "AUD"
+    case USD = "USD"
+    case CAD = "CAD"
+    case PLN = "PLN"
+    case MXN = "MXN"
 }

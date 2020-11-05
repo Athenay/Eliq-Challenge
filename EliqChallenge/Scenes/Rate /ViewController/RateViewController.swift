@@ -8,23 +8,54 @@
 
 import UIKit
 
-class RateViewController: UIViewController {
+protocol RateDisplayLogic: class {
+    func displayRateChart(viewModel: RateModel.FetchRates.ViewModel)
+    func displayDailyRate(viewModel: RateModel.FetchDailyRate.ViewModel)
+}
 
+class RateViewController: UIViewController {
+    var interactor: RateInteractorLogic?
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var dailyRateValue: UILabel!
+    @IBOutlet weak var nextButton: UIButton! {
+        didSet {
+            self.nextButton.isEnabled = false
+            self.nextButton.alpha = 0.5
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        interactor?.fetchRates(request: .init())
+        interactor?.fetchDailyRate(request: .init())
         // Do any additional setup after loading the view.
     }
+    
+}
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension RateViewController: RateDisplayLogic {
+    func displayRateChart(viewModel: RateModel.FetchRates.ViewModel) {
+        
     }
-    */
+    
+    func displayDailyRate(viewModel: RateModel.FetchDailyRate.ViewModel) {
+        self.date.text = viewModel.date
+        self.dailyRateValue.text = viewModel.rateValue
+        self.nextButton.isEnabled = viewModel.isNextButtonEnable
+        if !viewModel.isNextButtonEnable {
+            self.nextButton.alpha = 0.5
+        } else {
+            self.nextButton.alpha = 1.0
+        }
+    }    
+}
 
+extension RateViewController {
+    @IBAction func nextButtonTapped() {
+        self.interactor?.nextButtionTapped(request: .init())
+    }
+    
+    @IBAction func previousButtonTapped() {
+        self.interactor?.previousButtonTapped(request: .init())
+    }
 }

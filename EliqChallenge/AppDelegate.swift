@@ -11,15 +11,20 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    lazy var networkAPI: NetworkAPI = {
+        return NetworkAPI(decoder: JSONDecoder().getInstance())
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow()
-        self.window?.rootViewController = CurrencyDependencyContainer().makeCurrencyViewController()
+        self.window?.rootViewController = UINavigationController(rootViewController: CurrencyDependencyContainer().makeCurrencyViewController())
         self.window?.makeKeyAndVisible()
         return true
     }
 
-
+    static func getInstance() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 }
 

@@ -10,7 +10,12 @@ import Foundation
 
 class NetworkAPI {
     private let session: URLSession = URLSession(configuration: .default)
-    private var activeTimers: [String: DispatchSourceTimer] = [:]
+    let decoder: JSONDecoder
+    
+    init(decoder: JSONDecoder) {
+        self.decoder = decoder
+    }
+    
     private func sendNetworkRequest(request: URLRequest, completionHandler: @escaping (Result<Response, NetworkError>) -> Void) {
         debugPrint("request: \(request.url)")
         let dataTask = self.session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
@@ -29,6 +34,8 @@ class NetworkAPI {
                 completionHandler(.failure(NetworkError.noData(httpResponse)))
                 return
             }
+            debugPrint("RESPONSE RECIEVED ----------------")
+            debugPrint(String(data: data, encoding: .utf8))
             let response = Response(statusCode: httpResponse.statusCode, data: data, request: request, response: httpResponse)
             completionHandler(.success(response))
         })
@@ -56,9 +63,8 @@ class NetworkAPI {
     }
         
     private func parse<T: Decodable>(data: Data) -> Result<T, NetworkError> {
-        let jsonDecoder = JSONDecoder()
         do {
-            let object = try jsonDecoder.decode(T.self, from: data)
+            let object = try decoder.decode(T.self, from: data)
             return .success(object)
         } catch {
             return .failure(.parseError(data, HTTPURLResponse(), nil))

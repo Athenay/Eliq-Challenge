@@ -18,10 +18,13 @@ struct CurrencyDependencyContainer: CurrencyFactory {
         let presenter = CurrencyPresenter()
         let interactor = CurrencyInteractor()
         let worker = CurrencyWorker()
+        let router = CurrencyRouter()
+        router.viewController = viewController
         viewController.interactor = interactor
         presenter.viewController = viewController
         interactor.presenter = presenter
         interactor.worker = worker
+        viewController.router = router
         return viewController
     }
 }

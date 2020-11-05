@@ -51,6 +51,9 @@ extension CurrencyViewController: CurrencyDisplayLogic {
 
 extension CurrencyViewController: CollectionViewSelectItemDelegate {
     func itemDidSelect(_ model: CellModelLogic, indexPath: IndexPath) {
-        debugPrint("itemDidSelect")
+        guard let selectedCurrency = model.model as? Currency else {
+            return
+        }
+        self.router?.navigateToRate(selectedCurrency: selectedCurrency)
     }
 }
