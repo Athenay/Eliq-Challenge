@@ -14,9 +14,10 @@ protocol CurrencyDisplayLogic: class {
 
 class CurrencyViewController: UIViewController {
     
-    @IBOutlet private weak var collectionView: CollectionView! {
+    @IBOutlet private weak var collectionView: CollectionView!
+    @IBOutlet private weak var exchangeButton: UIButton! {
         didSet {
-            
+            self.exchangeButton.layer.addCornerRadius(10)
         }
     }
     var interactor: CurrencyInteractorLogic?
@@ -29,12 +30,23 @@ class CurrencyViewController: UIViewController {
         interactor?.fetchCurrencies(request: .init())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false )
+    }
+    
     func setupLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.sectionInset = .init(top: 16, left: 8, bottom: 16, right: 8)
         layout.minimumInteritemSpacing = 1.0
         layout.minimumLineSpacing = 1.0
-        layout.itemSize = .init(width: UIScreen.main.bounds.width / 2, height: 120)
+        layout.itemSize = .init(width: (UIScreen.main.bounds.width - 16) / 2, height: 120)
         collectionView.setCollectionViewLayout(layout, animated: true)
     }
 

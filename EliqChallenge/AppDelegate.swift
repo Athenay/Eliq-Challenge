@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
         self.window?.rootViewController = UINavigationController(rootViewController: CurrencyDependencyContainer().makeCurrencyViewController())
         self.window?.makeKeyAndVisible()
-        self.latestCurrencyFetcher.fetchLatestRates(completion: nil)
+//        self.latestCurrencyFetcher.fetchLatestRates(completion: nil)
         return true
     }
 

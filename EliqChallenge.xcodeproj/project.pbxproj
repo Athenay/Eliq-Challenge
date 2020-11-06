@@ -56,6 +56,13 @@
 		9EF3ABA8255479730023F201 /* ExchangePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABA7255479730023F201 /* ExchangePresenter.swift */; };
 		9EF3ABAC255479AA0023F201 /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABAB255479AA0023F201 /* ExchangeModel.swift */; };
 		9EF3ABAF25548C480023F201 /* ExchangeDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABAE25548C480023F201 /* ExchangeDependencyContainer.swift */; };
+		9EF3ABB22554A0DA0023F201 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABB12554A0DA0023F201 /* BarChart.swift */; };
+		9EF3ABB42554A1EE0023F201 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABB32554A1EE0023F201 /* CALayerExtension.swift */; };
+		9EF3ABB62554A2FA0023F201 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABB52554A2FA0023F201 /* ArrayExtension.swift */; };
+		9EF3ABB82554ADE60023F201 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABB72554ADE60023F201 /* UIBezierPathExtension.swift */; };
+		9EF3ABBC2554CD4E0023F201 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABBB2554CD4E0023F201 /* UIViewControllerExtension.swift */; };
+		9EF3ABBE2554D1430023F201 /* BarChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABBD2554D1430023F201 /* BarChartModel.swift */; };
+		9EF3ABC02554D1720023F201 /* BarChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF3ABBF2554D1720023F201 /* BarChartHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +117,13 @@
 		9EF3ABA7255479730023F201 /* ExchangePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangePresenter.swift; sourceTree = "<group>"; };
 		9EF3ABAB255479AA0023F201 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeModel.swift; sourceTree = "<group>"; };
 		9EF3ABAE25548C480023F201 /* ExchangeDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDependencyContainer.swift; sourceTree = "<group>"; };
+		9EF3ABB12554A0DA0023F201 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		9EF3ABB32554A1EE0023F201 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		9EF3ABB52554A2FA0023F201 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		9EF3ABB72554ADE60023F201 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
+		9EF3ABBB2554CD4E0023F201 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		9EF3ABBD2554D1430023F201 /* BarChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartModel.swift; sourceTree = "<group>"; };
+		9EF3ABBF2554D1720023F201 /* BarChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +181,10 @@
 				9E6B814A255434F700D583D9 /* JSONEncoder.swift */,
 				9E6B814C2554355700D583D9 /* JSONDecoder.swift */,
 				9E6B814E25543A2000D583D9 /* DateExtension.swift */,
+				9EF3ABB32554A1EE0023F201 /* CALayerExtension.swift */,
+				9EF3ABB52554A2FA0023F201 /* ArrayExtension.swift */,
+				9EF3ABB72554ADE60023F201 /* UIBezierPathExtension.swift */,
+				9EF3ABBB2554CD4E0023F201 /* UIViewControllerExtension.swift */,
 			);
 			name = Extensions;
 			path = "New Group";
@@ -324,6 +342,7 @@
 		9ECCAA902553F7C800FBDEC8 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				9EF3ABB02554A0C40023F201 /* BarChart */,
 				9ECCAA912553F7CF00FBDEC8 /* CollectionView */,
 			);
 			path = CustomViews;
@@ -371,6 +390,16 @@
 				9EF3ABAE25548C480023F201 /* ExchangeDependencyContainer.swift */,
 			);
 			path = DependencyContainer;
+			sourceTree = "<group>";
+		};
+		9EF3ABB02554A0C40023F201 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				9EF3ABB12554A0DA0023F201 /* BarChart.swift */,
+				9EF3ABBD2554D1430023F201 /* BarChartModel.swift */,
+				9EF3ABBF2554D1720023F201 /* BarChartHelper.swift */,
+			);
+			path = BarChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,18 +481,22 @@
 				9E6B814F25543A2000D583D9 /* DateExtension.swift in Sources */,
 				9E6B813F2554232200D583D9 /* FetchDailyRateParams.swift in Sources */,
 				9EF3AB9F25546C7C0023F201 /* LatestCurrencyRateFetcher.swift in Sources */,
+				9EF3ABB82554ADE60023F201 /* UIBezierPathExtension.swift in Sources */,
 				9E6B813225541C6F00D583D9 /* RateWorker.swift in Sources */,
 				9E6B813425541C7A00D583D9 /* RateInteractor.swift in Sources */,
 				9E6B813625541C8400D583D9 /* RatePresenter.swift in Sources */,
+				9EF3ABB22554A0DA0023F201 /* BarChart.swift in Sources */,
 				9E7726EC2553E7DB00618DF8 /* CurrencyRouter.swift in Sources */,
 				9EF3ABA6255479040023F201 /* ExchangeInteractor.swift in Sources */,
 				9E6B814B255434F700D583D9 /* JSONEncoder.swift in Sources */,
 				9E7D539325533F3A00F2F2D8 /* Endpoint.swift in Sources */,
 				9E7726E62553E7AF00618DF8 /* CurrencyInteractor.swift in Sources */,
 				9E6B8149255434BD00D583D9 /* EncodableExtension.swift in Sources */,
+				9EF3ABB42554A1EE0023F201 /* CALayerExtension.swift in Sources */,
 				9EF3ABA12554727D0023F201 /* LatestEndpoint.swift in Sources */,
 				9E6B813925541CCA00D583D9 /* RateModel.swift in Sources */,
 				9EF3ABAF25548C480023F201 /* ExchangeDependencyContainer.swift in Sources */,
+				9EF3ABBC2554CD4E0023F201 /* UIViewControllerExtension.swift in Sources */,
 				9EF3AB9B2554656D0023F201 /* ExchangeViewController.swift in Sources */,
 				9ECCAA892553F50100FBDEC8 /* CurrencyViewController.swift in Sources */,
 				9E7D539025533F3A00F2F2D8 /* Response.swift in Sources */,
@@ -478,6 +511,8 @@
 				9E7726E82553E7BE00618DF8 /* CurrencyPresenter.swift in Sources */,
 				9E7D539225533F3A00F2F2D8 /* Types.swift in Sources */,
 				9ECCAA962553F82B00FBDEC8 /* CollectionViewCellModel.swift in Sources */,
+				9EF3ABB62554A2FA0023F201 /* ArrayExtension.swift in Sources */,
+				9EF3ABBE2554D1430023F201 /* BarChartModel.swift in Sources */,
 				9E7D536A25532E6000F2F2D8 /* AppDelegate.swift in Sources */,
 				9E6B814625542C0600D583D9 /* DailyRatesResponse.swift in Sources */,
 				9ECCAA942553F81600FBDEC8 /* CollectionViewDataSource.swift in Sources */,
@@ -485,6 +520,7 @@
 				9EF3ABA3255473210023F201 /* LatestCurrencyRequestParam.swift in Sources */,
 				9E6B814D2554355700D583D9 /* JSONDecoder.swift in Sources */,
 				9E6B812B2554103C00D583D9 /* RateViewController.swift in Sources */,
+				9EF3ABC02554D1720023F201 /* BarChartHelper.swift in Sources */,
 				9EF3ABAC255479AA0023F201 /* ExchangeModel.swift in Sources */,
 				9E6B814425542BE600D583D9 /* RatesResponse.swift in Sources */,
 				9E7726F02553E80D00618DF8 /* CurrencyWorker.swift in Sources */,

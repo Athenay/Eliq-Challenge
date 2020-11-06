@@ -21,12 +21,12 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0k-R7-irM">
                                 <rect key="frame" x="8" y="8" width="155" height="81"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92835611100000004" green="0.92851525550000003" blue="0.92834609749999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="d0k-R7-irM" secondAttribute="bottom" constant="8" id="bWO-MJ-GAg"/>
                             <constraint firstItem="d0k-R7-irM" firstAttribute="top" secondItem="gZX-8x-oA4" secondAttribute="top" constant="8" id="ntX-pz-mh7"/>
@@ -46,7 +46,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="187" height="113"/>
             <connections>
-                <outlet property="currencyName" destination="d0k-R7-irM" id="ph0-hw-dxb"/>
+                <outlet property="containerView" destination="gZX-8x-oA4" id="kNQ-bS-HtR"/>
+                <outlet property="currencyName" destination="d0k-R7-irM" id="CdT-ve-nyi"/>
             </connections>
             <point key="canvasLocation" x="141" y="103"/>
         </collectionViewCell>

@@ -11,11 +11,13 @@ import UIKit
 protocol RateDisplayLogic: class {
     func displayRateChart(viewModel: RateModel.FetchRates.ViewModel)
     func displayDailyRate(viewModel: RateModel.FetchDailyRate.ViewModel)
+    func dispalyPageTitle(viewModel: RateModel.Initialize.ViewModel)
 }
 
 class RateViewController: UIViewController {
     var interactor: RateInteractorLogic?
     @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var barChart: BarChart!
     @IBOutlet weak var dailyRateValue: UILabel!
     @IBOutlet weak var nextButton: UIButton! {
         didSet {
@@ -26,16 +28,16 @@ class RateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.initialize(request: .init())
         interactor?.fetchRates(request: .init())
         interactor?.fetchDailyRate(request: .init())
-        // Do any additional setup after loading the view.
     }
     
 }
 
 extension RateViewController: RateDisplayLogic {
     func displayRateChart(viewModel: RateModel.FetchRates.ViewModel) {
-        
+        self.barChart.updateDataEntries(dataEntries: viewModel.dataEtries)
     }
     
     func displayDailyRate(viewModel: RateModel.FetchDailyRate.ViewModel) {
@@ -47,7 +49,12 @@ extension RateViewController: RateDisplayLogic {
         } else {
             self.nextButton.alpha = 1.0
         }
-    }    
+    }
+    
+    func dispalyPageTitle(viewModel: RateModel.Initialize.ViewModel) {
+        self.title = viewModel.pageTitle
+        
+    }
 }
 
 extension RateViewController {

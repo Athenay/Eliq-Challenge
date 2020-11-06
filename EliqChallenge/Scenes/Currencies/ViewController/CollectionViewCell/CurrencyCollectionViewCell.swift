@@ -11,6 +11,13 @@ import UIKit
 class CurrencyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var currencyName: UILabel!
+    @IBOutlet weak var containerView: UIView! {
+        didSet {
+            DispatchQueue.main.async {
+                self.containerView.layer.addCornerRadius(10)
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

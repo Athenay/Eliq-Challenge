@@ -18,11 +18,15 @@ class ExchangePresenter: ExchangePresenterLogic {
     weak var viewController: ExchangeViewController?
     
     func presentInitValues(response: ExchangeModel.Initialize.Respone) {
-        self.viewController?.displayInitializeResult(viewModel: .init(supportedCurrencies: response.supportedCurrencies))
+        DispatchQueue.main.async {
+            self.viewController?.displayInitializeResult(viewModel: .init(supportedCurrencies: response.supportedCurrencies))
+        }
     }
     
     func presentConvertResponse(response: ExchangeModel.Convert.Respone) {
-        self.viewController?.displayConvertResult(viewModel: .init(reciever: response.reciever, to: response.to))
+        DispatchQueue.main.async {
+            self.viewController?.displayConvertResult(viewModel: .init(reciever: response.reciever, to: response.to))
+        }
     }
     
     

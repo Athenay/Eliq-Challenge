@@ -11,6 +11,7 @@ import Foundation
 protocol RatePresenterLogic {
     func presentRatesResult(response: RateModel.FetchRates.Response)
     func presentDailyResult(response: RateModel.FetchDailyRate.Response)
+    func presentPageTitle(response: RateModel.Initialize.Response)
 }
 
 class RatePresenter: RatePresenterLogic {
@@ -19,10 +20,30 @@ class RatePresenter: RatePresenterLogic {
     
     func presentRatesResult(response: RateModel.FetchRates.Response) {
         switch response.response {
-        case .success(let response):
+        case .success(let result):
+            self.displayChart(response: result, selectedCurrency: response.selectedCurrency)
+        case .failure:
             break
-        case .failure(let error):
-            break
+        }
+    }
+    
+    func displayChart(response: RatesResponse, selectedCurrency: Currency) {
+        if let rates = response.rates {
+            var dailyRates = [Double]()
+            rates.keys.forEach { (key) in
+                if let value = rates[key]?[selectedCurrency.rawValue] {
+                    dailyRates.append(value)
+                }
+            }
+            
+            if let max = dailyRates.max() {
+                dailyRates = dailyRates.map { $0/max }
+            }
+            
+            let data = dailyRates.map { DataEntry(color: .white, height: Float($0))}
+            DispatchQueue.main.async {
+                self.viewController?.displayRateChart(viewModel: .init(dataEtries: data))
+            }
         }
     }
     
@@ -30,10 +51,18 @@ class RatePresenter: RatePresenterLogic {
         DispatchQueue.main.async {
             switch response.response {
             case .success(let result):
-                self.viewController?.displayDailyRate(viewModel: .init(date: result.date ?? "", rateValue: "\(result.rates![response.selectedCurrency.rawValue]!) \(response.selectedCurrency.rawValue)", isNextButtonEnable: response.isNextButtonEnable))
-            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.viewController?.displayDailyRate(viewModel: .init(date: result.date ?? "", rateValue: "\(result.rates![response.selectedCurrency.rawValue]!) \(response.selectedCurrency.rawValue)", isNextButtonEnable: response.isNextButtonEnable))
+                }
+            case .failure:
                 break
             }
+        }
+    }
+    
+    func presentPageTitle(response: RateModel.Initialize.Response) {
+        DispatchQueue.main.async {
+            self.viewController?.dispalyPageTitle(viewModel: .init(pageTitle: response.pageTitle))
         }
     }
 }

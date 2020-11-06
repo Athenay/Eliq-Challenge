@@ -18,7 +18,9 @@ class CurrencyPresenter: CurrencyPresenterLogic {
     func presentCurrencies(response: CurrencyModel.Fetch.Response) {
         switch response.result {
         case .success(let currencies):
-            presentList(currencies: currencies)
+            DispatchQueue.main.async {
+                self.presentList(currencies: currencies)
+            }
         case .failure:
             //In this case because of there is no network request, so the is no error
             break

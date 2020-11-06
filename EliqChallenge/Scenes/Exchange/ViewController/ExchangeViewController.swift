@@ -15,13 +15,21 @@ protocol ExchangeDisplayLogic {
 
 class ExchangeViewController: UIViewController {
     
-    @IBOutlet private weak var fromCurrencyButton: UIButton!
+    @IBOutlet private weak var fromCurrencyButton: UIButton! {
+        didSet {
+            self.fromCurrencyButton.layer.addCornerRadius(5)
+        }
+    }
     @IBOutlet private weak var fromCurrencyValueTextFiled: UITextField! {
         didSet {
             self.fromCurrencyValueTextFiled.keyboardType = .decimalPad
         }
     }
-    @IBOutlet private weak var toCurrencyButton: UIButton!
+    @IBOutlet private weak var toCurrencyButton: UIButton! {
+        didSet {
+            self.toCurrencyButton.layer.addCornerRadius(5)
+        }
+    }
     @IBOutlet private weak var toCurrencyValueTextFiled: UITextField! {
         didSet {
             self.toCurrencyValueTextFiled.keyboardType = .decimalPad
@@ -36,6 +44,7 @@ class ExchangeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Exchange"
         interactor?.initialize(request: .init())
         self.fromCurrencyValueTextFiled.addTarget(self, action: #selector(self.firstTextfieldDidChanged), for: .editingChanged)
         self.toCurrencyValueTextFiled.addTarget(self, action: #selector(self.secondTextfieldDidChanged), for: .editingChanged)

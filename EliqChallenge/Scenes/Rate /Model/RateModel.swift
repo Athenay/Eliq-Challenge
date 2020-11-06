@@ -10,15 +10,28 @@ import Foundation
 
 enum RateModel {
     
+    enum Initialize {
+        struct Request {
+            
+        }
+        struct Response {
+            let pageTitle: String
+        }
+        struct ViewModel {
+            let pageTitle: String
+        }
+    }
+    
     enum FetchRates {
         struct Request {
             
         }
         struct Response {
+            let selectedCurrency: Currency
             let response: Result<RatesResponse, ErrorModel>
         }
         struct ViewModel {
-            
+            let dataEtries: [DataEntry]
         }
     }
     
